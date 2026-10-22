@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sarvesh Chakravarthy — Full Stack Developer | Software Engineer</title>
-<meta name="description" content="Sarvesh Chakravarthy — Full Stack Developer and Software Engineer building modern web applications with Java, Spring Boot, React, JavaScript, MySQL and Python.">
+<title>Sarvesh Chakravarthy — Software Engineer</title>
+<meta name="description" content="Sarvesh Chakravarthy is an aspiring software engineer and web developer building practical projects with Python, Java, HTML, CSS, and JavaScript.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -283,7 +283,7 @@ h2.section-title{
 }
 .skill-card:hover{ transform: translateY(-8px) scale(1.04); box-shadow: 0 20px 40px rgba(0,229,255,.12); border-color: var(--primary); }
 .skill-ring{ width:64px; height:64px; margin:0 auto 14px; border-radius:50%; position:relative;
-  background: conic-gradient(var(--primary) calc(var(--pct)*1%), rgba(255,255,255,.08) 0);
+  background: linear-gradient(145deg, rgba(0,229,255,.34), rgba(138,43,226,.3));
   display:flex; align-items:center; justify-content:center;
 }
 .skill-ring::before{ content:''; position:absolute; inset:6px; border-radius:50%; background: var(--bg); }
@@ -482,7 +482,6 @@ footer span{ color: var(--primary); }
   <div class="hero-role" id="hero-role"></div>
   <p class="hero-sub" id="hero-sub"></p>
   <div class="hero-cta">
-    <a href="#" class="btn primary" data-magnetic>⬇ Download Resume</a>
     <a href="#projects" class="btn" data-magnetic>View Projects</a>
     <a href="#contact" class="btn" data-magnetic>Contact Me</a>
   </div>
@@ -497,13 +496,13 @@ footer span{ color: var(--primary); }
       <div class="about-photo"><img src="images/profile.jpeg" alt="Sarvesh Chakravarthy"></div>
       <div class="info-card glass">
         <div class="info-row"><span>DEGREE</span><span>B.Tech, Information Technology</span></div>
-        <div class="info-row"><span>FOCUS</span><span>Full Stack Development</span></div>
+        <div class="info-row"><span>FOCUS</span><span>Software &amp; Web Development</span></div>
         <div class="info-row"><span>BASED IN</span><span>India</span></div>
         <div class="info-row"><span>STATUS</span><span>Open to opportunities</span></div>
       </div>
     </div>
     <div class="about-text reveal">
-      <p>I am a passionate <strong>Full Stack Developer and Software Engineer</strong> who enjoys building scalable and user-friendly applications. I continuously learn new technologies and love solving real-world problems through software development.</p>
+      <p>I am an <strong>aspiring software engineer and web developer</strong> who enjoys building useful, user-friendly applications. I learn by creating projects, improving them through feedback, and exploring new tools.</p>
       <div class="about-cards">
         <div class="about-card glass"><span class="icon">🧩</span><h4>Problem Solving</h4><p>Breaking down complex challenges into clean, workable solutions.</p></div>
         <div class="about-card glass"><span class="icon">💻</span><h4>Clean Code</h4><p>Writing readable, maintainable code that scales with the product.</p></div>
@@ -566,17 +565,11 @@ footer span{ color: var(--primary); }
   <div class="timeline" id="timeline-list"></div>
 </section>
 
-<section id="photography">
-  <div class="eyebrow">07 — Photography</div>
-  <h2 class="section-title reveal">Through the Lens</h2>
-  <div class="gallery" id="gallery-grid"></div>
-</section>
-
 <section id="contact">
   <div class="eyebrow">08 — Contact</div>
   <h2 class="section-title reveal">Let's Build Something</h2>
   <div class="contact-grid">
-    <form class="reveal" onsubmit="event.preventDefault(); this.querySelector('.btn').textContent='Message Sent ✓';">
+    <form class="reveal" onsubmit="event.preventDefault(); const fields=[...this.querySelectorAll('input,textarea')].map(field=>field.value.trim()); const subject=encodeURIComponent(fields[2]); const body=encodeURIComponent(`Name: ${fields[0]}\nEmail: ${fields[1]}\n\n${fields[3]}`); window.location.href=`mailto:sarveshchakravarthy00@gmail.com?subject=${subject}&body=${body}`; this.querySelector('.btn').textContent='Open your email app to send →';">
       <div class="field">
         <input type="text" required placeholder=" ">
         <label>Your Name</label>
@@ -625,7 +618,7 @@ footer span{ color: var(--primary); }
 
 <footer>
   <div class="footer-name">Sarvesh Chakravarthy</div>
-  <div class="footer-role">Full Stack Developer | Software Engineer</div>
+  <div class="footer-role">Aspiring Software Engineer | Web Developer</div>
   <div class="footer-links">
     <a href="https://github.com/Sarvesh984" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/sarvesh-chakravarthy-3874a1424" target="_blank">LinkedIn</a>
@@ -769,8 +762,8 @@ function typeLine(el, text, speed=45){
 async function runIntro(){
   await typeLine(document.getElementById('hero-hello'), 'Hello, I\'m');
   await typeLine(document.getElementById('hero-name'), 'Sarvesh Chakravarthy', 70);
-  await typeLine(document.getElementById('hero-role'), 'Full Stack Developer | Software Engineer', 35);
-  await typeLine(document.getElementById('hero-sub'), 'Passionate Full Stack Developer focused on building modern web applications using Java, Spring Boot, React, JavaScript, MySQL, and Python.', 16);
+  await typeLine(document.getElementById('hero-role'), 'Aspiring Software Engineer | Web Developer', 35);
+  await typeLine(document.getElementById('hero-sub'), 'Building practical projects with Python, Java, HTML, CSS, and JavaScript — learning and improving with every release.', 16);
 }
 window.addEventListener('load', ()=> setTimeout(runIntro, 900));
 
@@ -792,18 +785,14 @@ const observer = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 /* ============ SKILLS DATA ============ */
-const skills = [
-  {name:'HTML5', pct:92}, {name:'CSS3', pct:90}, {name:'JavaScript', pct:88},
-  {name:'Java', pct:80}, {name:'Python', pct:82}, {name:'SQL', pct:78},
-  {name:'Git', pct:85}, {name:'GitHub', pct:85}, {name:'Flutter', pct:70},
-  {name:'Responsive Design', pct:90}, {name:'REST APIs', pct:83}
-];
+const skills = ['HTML5', 'CSS3', 'JavaScript', 'Java', 'Python', 'Tkinter', 'Flutter'];
 const skillsGrid = document.getElementById('skills-grid');
 skills.forEach((s,i)=>{
   const card = document.createElement('div');
   card.className='skill-card glass reveal';
   card.style.transitionDelay = (i*0.04)+'s';
-  card.innerHTML = `<div class="skill-ring" style="--pct:${s.pct}"><span>${s.pct}%</span></div><div class="skill-name">${s.name}</div>`;
+  const initials = s === 'JavaScript' ? 'JS' : s === 'Tkinter' ? 'TK' : s.slice(0,2).toUpperCase();
+  card.innerHTML = `<div class="skill-ring"><span>${initials}</span></div><div class="skill-name">${s}</div>`;
   skillsGrid.appendChild(card);
   observer.observe(card);
 });
@@ -839,18 +828,15 @@ orbitTech.forEach((t,i)=>{
 
 /* ============ PROJECTS DATA ============ */
 const projects = [
-  { name:'Python Quiz App', img:'images/quize app.jpeg', desc:'A desktop quiz application developed using Python with an interactive user interface and score tracking.', tech:['Python'], github:'https://github.com/Sarvesh984/python-quiz-app', comingSoon:false },
-  { name:'Turf Slot Booking System', img:'images/turfapp.jpeg', desc:'A Java-based turf booking application where users can book available slots efficiently.', tech:['Java'], github:'https://github.com/Sarvesh984/turf-booking-java', comingSoon:false },
-  { name:'Coming Soon', img:'images/offline payment.jpeg', desc:'An exciting Full Stack Project is currently under development. Stay tuned for updates.', tech:['Java','Spring Boot','MySQL'], comingSoon:true },
+  { name:'Python Quiz App', img:'images/quize app.jpeg', desc:'A Tkinter desktop quiz with two built-in multiple-choice quizzes, random selection, and a final score summary.', tech:['Python','Tkinter'], github:'https://github.com/Sarvesh984/python-quiz-app' },
+  { name:'Turf Slot Booking System', img:'images/turfapp.jpeg', desc:'A Java console app for viewing sample turf slots, booking an available slot, and printing an in-memory booking receipt.', tech:['Java','OOP'], github:'https://github.com/Sarvesh984/turf-booking-java' },
 ];
 const projectsGrid = document.getElementById('projects-grid');
 projects.forEach((p,i)=>{
   const card = document.createElement('div');
   card.className='project-card glass reveal';
   card.style.transitionDelay = (i*0.08)+'s';
-  const links = p.comingSoon
-    ? `<div class="project-links"><span class="btn" style="opacity:.6; cursor:default;">⏳ Coming Soon</span></div>`
-    : `<div class="project-links"><a href="${p.github}" target="_blank">GitHub ↗</a></div>`;
+  const links = `<div class="project-links"><a href="${p.github}" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a></div>`;
   card.innerHTML = `
     <div class="project-media"><img src="${p.img}" alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
     <div class="project-body">
@@ -910,17 +896,6 @@ timelineData.forEach((t,i)=>{
   tlList.appendChild(item);
   observer.observe(item);
 });
-
-/* ============ PHOTOGRAPHY GALLERY ============ */
-const galleryGrid = document.getElementById('gallery-grid');
-for(let i=1;i<=8;i++){
-  const item = document.createElement('div');
-  item.className='gallery-item reveal';
-  item.style.transitionDelay = (i*0.04)+'s';
-  item.innerHTML = `<span>📷 Image Coming Soon</span>`;
-  galleryGrid.appendChild(item);
-  observer.observe(item);
-}
 
 /* ============ LIVE GITHUB API ============ */
 const GITHUB_USERNAME = 'Sarvesh984';
