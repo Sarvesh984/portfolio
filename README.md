@@ -5,9 +5,7 @@ A responsive personal portfolio built with plain HTML, CSS, and JavaScript. It p
 ## Features
 
 - Responsive layout with light and dark themes
-- Four project cards linking to the KYN × VAMOS website, portfolio, Python quiz app, and Java turf booking app
-- Clickable skill cards and project tags that filter work by the technologies used
-- SQL skill linked to its matching certificate, with clear context for skills without a featured project
+- Project cards linking to their source repositories
 - Certificate image viewer
 - Public GitHub profile and repository data loaded from the GitHub API
 - Contact form that opens a prefilled email draft in the visitor's mail app

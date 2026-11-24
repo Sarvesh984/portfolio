@@ -267,11 +267,6 @@ h2.section-title{
   background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), var(--primary));
   animation: spin 8s linear infinite;
 }
-.about-project-bridge{margin:24px 0 8px;padding:22px 24px;border:1px solid rgba(88,166,255,.22);border-radius:16px;background:linear-gradient(135deg,rgba(88,166,255,.09),rgba(188,140,255,.06));}
-.about-project-bridge .bridge-kicker{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;color:var(--primary);}
-.about-project-bridge p{margin:10px 0 14px;font-size:.92rem;line-height:1.65;}
-.about-project-bridge a{color:var(--text);font-weight:700;text-decoration:none;}
-.about-project-bridge a:hover{color:var(--primary);}
 .about-cards{ display:grid; grid-template-columns: repeat(2,1fr); gap:16px; margin-top: 26px; }
 @media (max-width:500px){ .about-cards{ grid-template-columns:1fr; } }
 .about-card{ padding: 22px; text-align:left; transition: transform .3s ease, border-color .3s ease; }
@@ -280,33 +275,37 @@ h2.section-title{
 .about-card h4{ font-family: var(--font-display); font-size:.92rem; margin-bottom:6px; }
 .about-card p{ font-family: var(--font-body); font-size:.78rem; color: var(--text-dim); line-height:1.5; }
 
-/* ============ INTERACTIVE SKILLS ============ */
-.skills-intro{max-width:700px;color:var(--text-dim);line-height:1.75;margin:-26px 0 28px;font-size:1rem;}
-.skills-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:18px;}
-.skills-hint,.skill-filter-status{font-family:var(--font-mono);font-size:.78rem;color:var(--text-dim);}
-.skill-filter-status{min-height:22px;margin:0 0 18px;color:var(--accent);}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px;}
-.skill-card{appearance:none;width:100%;display:flex;align-items:center;gap:13px;text-align:left;padding:14px 16px;color:var(--text);cursor:pointer;position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease;}
-.skill-card::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 15%,rgba(0,229,255,.08) 50%,transparent 82%);transform:translateX(-120%);transition:transform .6s ease;pointer-events:none;}
-.skill-card:hover::after,.skill-card:focus-visible::after{transform:translateX(120%);}
-.skill-card:hover,.skill-card:focus-visible{transform:translateY(-3px);border-color:var(--primary);box-shadow:0 12px 32px rgba(0,229,255,.10);outline:none;}
-.skill-card[aria-pressed="true"]{border-color:var(--primary);background:linear-gradient(125deg,rgba(0,229,255,.13),rgba(138,43,226,.12));box-shadow:0 0 0 1px rgba(0,229,255,.14),0 12px 32px rgba(0,229,255,.10);}
-.skill-mark{flex:0 0 42px;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;font:700 .69rem var(--font-mono);color:var(--accent);background:linear-gradient(145deg,rgba(0,229,255,.16),rgba(138,43,226,.22));border:1px solid rgba(0,229,255,.2);}
-.skill-copy{min-width:0;display:flex;flex-direction:column;gap:4px;}
-.skill-name{font:600 .9rem var(--font-display);}
-.skill-count{font:500 .63rem var(--font-mono);color:var(--text-dim);letter-spacing:.02em;}
-.skill-card[aria-pressed="true"] .skill-count{color:var(--accent);}
-.skill-reset{appearance:none;border:1px solid var(--glass-border);border-radius:9px;background:var(--glass);color:var(--text);font:600 .7rem var(--font-mono);letter-spacing:.06em;padding:10px 14px;cursor:pointer;transition:border-color .2s ease,color .2s ease,transform .2s ease;}
-.skill-reset:hover,.skill-reset:focus-visible{border-color:var(--primary);color:var(--primary);transform:translateY(-2px);outline:none;}
-.skills-bridge{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px;padding:16px 18px;border:1px solid var(--glass-border);border-radius:14px;background:linear-gradient(110deg,rgba(0,229,255,.05),rgba(138,43,226,.06));color:var(--text-dim);font-size:.84rem;}
-.skills-bridge strong{color:var(--text);font-family:var(--font-mono);font-size:.74rem;letter-spacing:.06em;}
-/* ============ PROJECTS ============ */
-.project-filter-label{font-family:var(--font-mono);font-size:.78rem;color:var(--accent);margin:-30px 0 24px;min-height:22px;}
-.project-empty-state{padding:28px;border:1px solid var(--glass-border);border-radius:16px;background:var(--glass);color:var(--text-dim);line-height:1.7;}
-.project-empty-state[hidden],.project-card[hidden],.cert-card[hidden]{display:none !important;}
-.project-empty-state a{color:var(--primary);text-decoration:underline;text-underline-offset:3px;}
-.project-card{animation:project-arrive .45s cubic-bezier(.16,1,.3,1) both;}
-@keyframes project-arrive{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+/* ============ SKILLS ============ */
+.skills-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap: 20px; }
+.skill-card{
+  padding: 26px 18px; text-align:center; position:relative; transition: transform .35s ease, box-shadow .35s ease;
+  transform-style: preserve-3d;
+}
+.skill-card:hover{ transform: translateY(-8px) scale(1.04); box-shadow: 0 20px 40px rgba(0,229,255,.12); border-color: var(--primary); }
+.skill-ring{ width:64px; height:64px; margin:0 auto 14px; border-radius:50%; position:relative;
+  background: linear-gradient(145deg, rgba(0,229,255,.34), rgba(138,43,226,.3));
+  display:flex; align-items:center; justify-content:center;
+}
+.skill-ring::before{ content:''; position:absolute; inset:6px; border-radius:50%; background: var(--bg); }
+.skill-ring span{ position:relative; font-family: var(--font-mono); font-size:.68rem; color: var(--accent); }
+.skill-name{ font-family: var(--font-display); font-weight:600; font-size:.92rem; }
+
+/* ============ TECH ORBIT ============ */
+.orbit-wrap{ position:relative; width: min(560px, 90vw); height: min(560px,90vw); margin: 0 auto; }
+.orbit-core{
+  position:absolute; top:50%; left:50%; transform: translate(-50%,-50%); width:76px; height:76px; border-radius:50%;
+  background: radial-gradient(circle at 35% 30%, var(--accent), var(--secondary) 70%);
+  box-shadow: 0 0 50px rgba(0,229,255,.5), 0 0 90px rgba(138,43,226,.4);
+  display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; color:#04070f; font-size:.7rem;
+}
+.orbit-ring{ position:absolute; top:50%; left:50%; border:1px dashed rgba(255,255,255,.12); border-radius:50%; transform: translate(-50%,-50%); }
+.orbit-item{
+  position:absolute; top:50%; left:50%; width:52px; height:52px; margin:-26px; border-radius:14px;
+  display:flex; align-items:center; justify-content:center; font-family: var(--font-mono); font-size:.62rem; font-weight:600;
+  color: var(--text);
+}
+.orbit-item .badge{ width:100%; height:100%; border-radius:14px; display:flex; align-items:center; justify-content:center; }
+
 /* ============ PROJECTS ============ */
 .projects-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 28px; }
 .project-card{
@@ -327,10 +326,7 @@ h2.section-title{
 .project-body h3{ font-family: var(--font-display); font-size:1.15rem; margin-bottom:8px; }
 .project-body p{ color: var(--text-dim); font-size:.9rem; line-height:1.6; margin-bottom:14px; }
 .tech-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
-.tech-tags span,.tech-filter{ font-family: var(--font-mono); font-size:.68rem; color: var(--primary); background: rgba(0,229,255,.08); padding:5px 10px; border-radius:6px; }
-.tech-filter{appearance:none;border:1px solid transparent;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease;}
-.tech-filter:hover,.tech-filter:focus-visible,.tech-filter.active{color:var(--text);background:rgba(0,229,255,.17);border-color:rgba(0,229,255,.45);transform:translateY(-1px);outline:none;}
-.project-kicker{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.15em;color:var(--primary);margin-bottom:9px;}
+.tech-tags span{ font-family: var(--font-mono); font-size:.68rem; color: var(--primary); background: rgba(0,229,255,.08); padding:4px 10px; border-radius:6px; }
 .project-links{ display:flex; gap:16px; }
 .project-links a{ font-family: var(--font-mono); font-size:.78rem; color: var(--text); border-bottom:1px solid var(--glass-border); padding-bottom:2px; }
 .project-links a:hover{ color: var(--primary); border-color: var(--primary); }
@@ -506,8 +502,7 @@ footer span{ color: var(--primary); }
       </div>
     </div>
     <div class="about-text reveal">
-      <p>I am an <strong>aspiring software engineer and web developer</strong> who enjoys building useful, user-friendly applications. I learn by creating projects, improving them through feedback, and exploring new tools. The skills below are connected to the work where I have applied them.</p>
-      <div class="about-project-bridge glass"><span class="bridge-kicker">FROM SKILLS TO REAL PROJECTS</span><p>Choose a skill to see where I have applied it, then open the project for the full details.</p><a href="#skills">Explore the interactive skill map <span aria-hidden="true">→</span></a></div>
+      <p>I am an <strong>aspiring software engineer and web developer</strong> who enjoys building useful, user-friendly applications. I learn by creating projects, improving them through feedback, and exploring new tools.</p>
       <div class="about-cards">
         <div class="about-card glass"><span class="icon">🧩</span><h4>Problem Solving</h4><p>Breaking down complex challenges into clean, workable solutions.</p></div>
         <div class="about-card glass"><span class="icon">💻</span><h4>Clean Code</h4><p>Writing readable, maintainable code that scales with the product.</p></div>
@@ -520,23 +515,20 @@ footer span{ color: var(--primary); }
 
 <section id="skills">
   <div class="eyebrow">02 — Skills</div>
-  <h2 class="section-title reveal">Skills, connected to the work</h2>
-  <p class="skills-intro reveal">Pick a tool to see the projects where I have used it. Project tags are clickable too, so you can explore my work from either direction.</p>
-  <div class="skills-toolbar reveal">
-    <span class="skills-hint">SELECT A SKILL TO FILTER PROJECTS</span>
-    <button class="skill-reset" id="clear-skill-filter" type="button">SHOW ALL WORK</button>
+  <h2 class="section-title reveal">Tools of the Trade</h2>
+  <div class="skills-grid" id="skills-grid"></div>
+
+  <div style="margin-top:100px;">
+    <div class="orbit-wrap reveal" id="orbit-wrap">
+      <div class="orbit-core">CORE</div>
+    </div>
   </div>
-  <p class="skill-filter-status" id="skill-filter-status" role="status" aria-live="polite">All four projects are visible. Choose a skill to explore the connection.</p>
-  <div class="skills-grid reveal" id="skills-grid" role="group" aria-label="Filter projects by skill"></div>
-  <div class="skills-bridge reveal"><strong>HOW I BUILD</strong><span>Learn a tool</span><span aria-hidden="true">→</span><span>Apply it to a project</span><span aria-hidden="true">→</span><span>Improve with feedback</span></div>
 </section>
 
 <section id="projects">
   <div class="eyebrow">03 — Projects</div>
   <h2 class="section-title reveal">Selected Work</h2>
-  <p class="project-filter-label" id="project-filter-label">All four featured projects</p>
   <div class="projects-grid" id="projects-grid"></div>
-  <div class="project-empty-state" id="project-empty-state" role="status" aria-live="polite" hidden></div>
 </section>
 
 <section id="certs">
@@ -577,10 +569,7 @@ footer span{ color: var(--primary); }
   <div class="eyebrow">08 — Contact</div>
   <h2 class="section-title reveal">Let's Build Something</h2>
   <div class="contact-grid">
-    <form class="reveal" onsubmit="event.preventDefault(); const fields=[...this.querySelectorAll('input,textarea')].map(field=>field.value.trim()); const subject=encodeURIComponent(fields[2]); const body=encodeURIComponent(`Name: ${fields[0]}
-Email: ${fields[1]}
-
-${fields[3]}`); window.location.href=`mailto:sarveshchakravarthy00@gmail.com?subject=${subject}&body=${body}`; this.querySelector('.btn').textContent='Open your email app to send →';">
+    <form class="reveal" onsubmit="event.preventDefault(); const fields=[...this.querySelectorAll('input,textarea')].map(field=>field.value.trim()); const subject=encodeURIComponent(fields[2]); const body=encodeURIComponent(`Name: ${fields[0]}\nEmail: ${fields[1]}\n\n${fields[3]}`); window.location.href=`mailto:sarveshchakravarthy00@gmail.com?subject=${subject}&body=${body}`; this.querySelector('.btn').textContent='Open your email app to send →';">
       <div class="field">
         <input type="text" required placeholder=" ">
         <label>Your Name</label>
@@ -795,97 +784,67 @@ const observer = new IntersectionObserver((entries)=>{
 },{ threshold:.15 });
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-/* ============ SKILLS CONNECTED TO PROJECTS ============ */
-const skills = [
-  { name:'HTML5', mark:'HTML', projects:['kyn','portfolio'] },
-  { name:'CSS3', mark:'CSS', projects:['kyn','portfolio'] },
-  { name:'JavaScript', mark:'JS', projects:['kyn','portfolio'] },
-  { name:'React', mark:'RE', projects:['kyn'] },
-  { name:'TypeScript', mark:'TS', projects:['kyn'] },
-  { name:'Vite', mark:'VT', projects:['kyn'] },
-  { name:'Python', mark:'PY', projects:['quiz'] },
-  { name:'Tkinter', mark:'TK', projects:['quiz'] },
-  { name:'Java', mark:'JA', projects:['turf'] },
-  { name:'OOP', mark:'OOP', projects:['turf'] },
-  { name:'SQL', mark:'SQL', projects:[], certificate:'sql' },
-  { name:'Flutter', mark:'FL', projects:[], note:'Flutter is in my toolkit; I do not have a featured public Flutter project yet.' },
-  { name:'Git', mark:'GIT', projects:['kyn','portfolio','quiz','turf'] },
-];
+/* ============ SKILLS DATA ============ */
+const skills = ['HTML5', 'CSS3', 'JavaScript', 'Java', 'Python', 'Tkinter', 'Flutter'];
 const skillsGrid = document.getElementById('skills-grid');
-let activeSkill = null;
-function getSkill(name){ return skills.find(skill=>skill.name===name); }
-function filterProjectsBySkill(name, shouldScroll=false){
-  activeSkill = activeSkill===name ? null : name;
-  const skill = getSkill(activeSkill);
-  const matches = skill ? projects.filter(project=>skill.projects.includes(project.id)) : projects;
-  document.querySelectorAll('.project-card').forEach(card=>{
-    const show = !skill || skill.projects.includes(card.dataset.projectId);
-    card.hidden = !show;
-    card.classList.toggle('project-match', Boolean(skill && show));
-  });
-  document.querySelectorAll('.skill-card').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.skill===activeSkill)));
-  document.querySelectorAll('.tech-filter').forEach(button=>button.classList.toggle('active',button.dataset.filterSkill===activeSkill));
-  const status = document.getElementById('skill-filter-status');
-  const projectLabel = document.getElementById('project-filter-label');
-  const empty = document.getElementById('project-empty-state');
-  empty.hidden = !skill || matches.length>0;
-  if(!skill){
-    status.textContent = 'All four projects are visible. Choose a skill to explore the connection.';
-    projectLabel.textContent = 'All four featured projects';
-    empty.textContent = '';
-  }else if(matches.length){
-    const names = matches.map(project=>project.name).join(' · ');
-    status.textContent = skill.name+' is connected to '+matches.length+' project'+(matches.length===1?'':'s')+': '+names+'.';
-    projectLabel.textContent = 'Projects using '+skill.name;
-    empty.textContent = '';
-  }else if(skill.certificate){
-    status.textContent = skill.name+' is linked to a certificate below; no featured repository currently uses it.';
-    projectLabel.textContent = 'No featured project tagged '+skill.name;
-    empty.innerHTML = 'No featured repository currently uses '+skill.name+'. See the <a href="#certs">SQL for Data Science certificate</a>.';
-  }else{
-    status.textContent = skill.name+' is in my toolkit; no featured public project is connected yet.';
-    projectLabel.textContent = 'No featured project tagged '+skill.name;
-    empty.textContent = skill.note || 'No featured public project is connected to this skill yet.';
-  }
-  document.querySelectorAll('.cert-card').forEach(card=>{
-    card.hidden = Boolean(skill?.certificate && !card.dataset.certId?.includes(skill.certificate));
-  });
-  if(shouldScroll){
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    document.getElementById('projects').scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'});
-  }
-}
-skills.forEach(skill=>{
-  const related = skill.projects.length ? skill.projects.length+' project'+(skill.projects.length===1?'':'s') : skill.certificate ? 'certificate' : 'toolkit';
-  const button = document.createElement('button');
-  button.type='button';
-  button.className='skill-card glass';
-  button.dataset.skill=skill.name;
-  button.setAttribute('aria-pressed','false');
-  button.setAttribute('aria-label','Show work related to '+skill.name+' ('+related+')');
-  button.innerHTML = '<span class="skill-mark" aria-hidden="true">'+skill.mark+'</span><span class="skill-copy"><span class="skill-name">'+skill.name+'</span><span class="skill-count">'+related+'</span></span>';
-  button.addEventListener('click',()=>filterProjectsBySkill(skill.name,true));
-  skillsGrid.appendChild(button);
+skills.forEach((s,i)=>{
+  const card = document.createElement('div');
+  card.className='skill-card glass reveal';
+  card.style.transitionDelay = (i*0.04)+'s';
+  const initials = s === 'JavaScript' ? 'JS' : s === 'Tkinter' ? 'TK' : s.slice(0,2).toUpperCase();
+  card.innerHTML = `<div class="skill-ring"><span>${initials}</span></div><div class="skill-name">${s}</div>`;
+  skillsGrid.appendChild(card);
+  observer.observe(card);
 });
-document.getElementById('clear-skill-filter').addEventListener('click',()=>filterProjectsBySkill(null));
+
+/* ============ TECH ORBIT ============ */
+const orbitWrap = document.getElementById('orbit-wrap');
+const orbitTech = ['HTML','CSS','JS','Java','Python','SQL','Git','Flutter'];
+const rings = 2;
+orbitTech.forEach((t,i)=>{
+  const ringIndex = i % rings;
+  const radius = ringIndex===0 ? 130 : 220;
+  const duration = ringIndex===0 ? 14 : 22;
+  const angleOffset = (i * (360/ (orbitTech.length/rings))) ;
+  const item = document.createElement('div');
+  item.className='orbit-item';
+  item.style.animation = `spin ${duration}s linear infinite`;
+  item.style.transformOrigin = '50% 50%';
+  const wrapper = document.createElement('div');
+  wrapper.style.position='absolute'; wrapper.style.top='50%'; wrapper.style.left='50%';
+  wrapper.style.width='0'; wrapper.style.height='0';
+  wrapper.style.transform = `rotate(${angleOffset}deg)`;
+  wrapper.style.animation = `spin ${duration}s linear infinite`;
+  wrapper.innerHTML = `<div class="orbit-item" style="left:${radius}px; margin-top:-26px;"><div class="badge glass" style="border-color:var(--primary); box-shadow:0 0 16px rgba(0,229,255,.25);">${t}</div></div>`;
+  orbitWrap.appendChild(wrapper);
+});
+// static rings
+[130,220].forEach(r=>{
+  const ring = document.createElement('div');
+  ring.className='orbit-ring';
+  ring.style.width = ring.style.height = (r*2)+'px';
+  orbitWrap.appendChild(ring);
+});
 
 /* ============ PROJECTS DATA ============ */
 const projects = [
-  { id:'kyn', name:'KYN × VAMOS Website', img:'images/kynxvamous-website.png', desc:'A responsive event website with race information, race-day experiences, and partner highlights.', tech:['React','TypeScript','Vite','HTML5','CSS3','JavaScript','Git'], github:'https://github.com/Sarvesh984/kynxvamous-website', label:'FEATURED WEBSITE' },
-  { id:'portfolio', name:'Personal Portfolio', img:'images/portfolio-preview.png', desc:'This portfolio: an interactive site for selected work, certificates, contact details, and live GitHub data.', tech:['HTML5','CSS3','JavaScript','Git'], github:'https://github.com/Sarvesh984/portfolio', live:'https://sarvesh-dev-18.netlify.app/', label:'LIVE PORTFOLIO' },
-  { id:'quiz', name:'Python Quiz App', img:'images/quize app.jpeg', desc:'A Tkinter desktop quiz with two built-in multiple-choice quizzes, random selection, and a final score summary.', tech:['Python','Tkinter'], github:'https://github.com/Sarvesh984/python-quiz-app', label:'DESKTOP APP' },
-  { id:'turf', name:'Turf Slot Booking System', img:'images/turfapp.jpeg', desc:'A Java console app for viewing sample turf slots, booking an available slot, and printing an in-memory booking receipt.', tech:['Java','OOP'], github:'https://github.com/Sarvesh984/turf-booking-java', label:'CONSOLE APP' },
+  { name:'Python Quiz App', img:'images/quize app.jpeg', desc:'A Tkinter desktop quiz with two built-in multiple-choice quizzes, random selection, and a final score summary.', tech:['Python','Tkinter'], github:'https://github.com/Sarvesh984/python-quiz-app' },
+  { name:'Turf Slot Booking System', img:'images/turfapp.jpeg', desc:'A Java console app for viewing sample turf slots, booking an available slot, and printing an in-memory booking receipt.', tech:['Java','OOP'], github:'https://github.com/Sarvesh984/turf-booking-java' },
 ];
 const projectsGrid = document.getElementById('projects-grid');
-projects.forEach((project,i)=>{
-  const card = document.createElement('article');
+projects.forEach((p,i)=>{
+  const card = document.createElement('div');
   card.className='project-card glass reveal';
-  card.dataset.projectId=project.id;
-  card.dataset.skills=project.tech.join('|');
-  card.style.transitionDelay = (i*0.06)+'s';
-  const liveLink = project.live ? '<a href="'+project.live+'" target="_blank" rel="noopener noreferrer">Visit live site ↗</a>' : '';
-  card.innerHTML = '<div class="project-media"><img src="'+project.img+'" alt="'+project.name+'" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div><div class="project-body"><div class="project-kicker">'+project.label+'</div><h3>'+project.name+'</h3><p>'+project.desc+'</p><div class="tech-tags">'+project.tech.map(tech=>'<button class="tech-filter" type="button" data-filter-skill="'+tech+'" aria-label="Filter by '+tech+'">'+tech+'</button>').join('')+'</div><div class="project-links"><a href="'+project.github+'" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a>'+liveLink+'</div></div>';
-  card.querySelectorAll('.tech-filter').forEach(button=>button.addEventListener('click',()=>filterProjectsBySkill(button.dataset.filterSkill,false)));
+  card.style.transitionDelay = (i*0.08)+'s';
+  const links = `<div class="project-links"><a href="${p.github}" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a></div>`;
+  card.innerHTML = `
+    <div class="project-media"><img src="${p.img}" alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;"></div>
+    <div class="project-body">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="tech-tags">${p.tech.map(t=>`<span>${t}</span>`).join('')}</div>
+      ${links}
+    </div>`;
   projectsGrid.appendChild(card);
   observer.observe(card);
 });
@@ -894,13 +853,12 @@ projects.forEach((project,i)=>{
 const certs = [
   { name:'Data Science & Analytics', issuer:'HP LIFE — HP Foundation', date:'Presented 2/5/2025', img:'images/cert2.jpeg' },
   { name:'Course on Java', issuer:'Livewire (NSDC · Skill India)', date:'Oct 2023 – Jan 2024', img:'images/cert1.jpeg' },
-  { name:'SQL for Data Science', issuer:'Great Learning Academy', date:'February 2025', img:'images/cert3.jpeg', id:'sql' },
+  { name:'SQL for Data Science', issuer:'Great Learning Academy', date:'February 2025', img:'images/cert3.jpeg' },
 ];
 const certsGrid = document.getElementById('certs-grid');
 certs.forEach((c,i)=>{
   const card = document.createElement('div');
   card.className='cert-card glass reveal';
-  card.dataset.certId=c.id || '';
   card.style.transitionDelay = (i*0.06)+'s';
   card.innerHTML = `
     <div class="cert-media"><img src="${c.img}" alt="${c.name} certificate" loading="lazy"></div>
